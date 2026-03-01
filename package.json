@@ -1,6 +1,7 @@
 {
   "name": "@omnixys/contracts",
   "version": "1.0.1",
+  "type": "module",
   "packageManager": "pnpm@9.12.0",
   "description": "Shared domain contracts for Omnixys microservices",
   "main": "dist/index.js",
