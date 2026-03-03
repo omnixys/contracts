@@ -14,7 +14,8 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "patch": "pnpm version patch"
+    "patch": "pnpm version patch",
+    "release": "semantic-release"
   },
   "keywords": [
     "omnixys",
@@ -22,7 +23,7 @@
     "microservices"
   ],
   "license": "GPL-3.0-or-later",
-  "dependencies": {
+  "devDependencies": {
     "@commitlint/config-conventional": "^20.4.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
