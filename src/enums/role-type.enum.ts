@@ -23,15 +23,9 @@
 
 export enum RealmRole {
   ADMIN = 'ADMIN',
-  SECURITY = 'SECURITY',
-  EVENT_ADMIN = 'EVENT_ADMIN',
-
+  USER = 'USER',
   SUPREME = 'SUPREME',
   ELITE = 'ELITE',
   BASIC = 'BASIC',
-
-  USER = 'USER',
   GUEST = 'GUEST',
-
-  ANON = 'ANON',
 }
