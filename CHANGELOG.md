@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.2.2](https://github.com/omnixys/contracts/compare/v1.2.1...v1.2.2) (2026-03-11)
+
+### Type
+
+* **Type:** add jose dependency and Keycloak DTO ([](https://github.com/omnixys/contracts/commit/177362808e8489c31f3a6c94522645684d3c27f3))
+
 ## [1.2.1](https://github.com/omnixys/contracts/compare/v1.2.0...v1.2.1) (2026-03-11)
 
 ### Description
