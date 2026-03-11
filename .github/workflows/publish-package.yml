@@ -26,7 +26,6 @@ jobs:
       - run: pnpm install
       - run: pnpm build
 
-      # 👇 WICHTIGER SCHRITT
       - name: Setup npm registry auth
         run: |
           echo "@omnixys:registry=https://npm.pkg.github.com" >> .npmrc
