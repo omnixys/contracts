@@ -3,6 +3,16 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.3.0](https://github.com/omnixys/contracts/compare/v1.2.2...v1.3.0) (2026-03-11)
+
+### Dto
+
+* **Dto:** add kcRawOutput ([](https://github.com/omnixys/contracts/commit/a32db97d8662b16aba001478e2a0751d9ec77356))
+
+### Other
+
+* **Other:** Merge branch 'main' of https://github.com/omnixys/contracts ([](https://github.com/omnixys/contracts/commit/afbcae629356a0bf6e4e66f2cdd5c556a5049d9a))
+
 ## [1.2.2](https://github.com/omnixys/contracts/compare/v1.2.1...v1.2.2) (2026-03-11)
 
 ### Type
