@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.4.2](https://github.com/omnixys/contracts/compare/v1.4.1...v1.4.2) (2026-03-12)
+
+### Type
+
+* **Type:** fix SendResetLinkMessageDTO ([](https://github.com/omnixys/contracts/commit/e0c8a5e9ff829cd6c8d1a163c7e350f0ee3eb377))
+
 ## [1.4.1](https://github.com/omnixys/contracts/compare/v1.4.0...v1.4.1) (2026-03-12)
 
 ### Other
