@@ -3,6 +3,16 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.4.1](https://github.com/omnixys/contracts/compare/v1.4.0...v1.4.1) (2026-03-12)
+
+### Other
+
+* **Other:** Merge branch 'main' of https://github.com/omnixys/contracts ([](https://github.com/omnixys/contracts/commit/f082dc1dacd128b2ef86d042a7f638fe074132da))
+
+### Release
+
+* **Release:** update release config ([](https://github.com/omnixys/contracts/commit/b2691b01ecbe2b3e13776d08bfeb637a7a97dcb1))
+
 ## [1.4.0](https://github.com/omnixys/contracts/compare/v1.3.0...v1.4.0) (2026-03-12)
 
 ### Dto
