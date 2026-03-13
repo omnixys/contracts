@@ -3,6 +3,20 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.7.0](https://github.com/omnixys/contracts/compare/v1.6.0...v1.7.0) (2026-03-13)
+
+### Exception
+
+* **Exception:** add TooManyRequestsException ([](https://github.com/omnixys/contracts/commit/8e1f89935c8544ab974863a052381b78dac96636))
+
+### Other
+
+* **Other:** Merge branch 'main' of https://github.com/omnixys/contracts ([](https://github.com/omnixys/contracts/commit/d59f5a9b0a75e779d497a5519eaa33d4562e6165))
+
+### Update
+
+* **Update:** update package.json ([](https://github.com/omnixys/contracts/commit/158887dffe6a5fe5778514754c669dcc77b38ea9))
+
 ## [1.6.0](https://github.com/omnixys/contracts/compare/v1.5.1...v1.6.0) (2026-03-13)
 
 ### Dto
