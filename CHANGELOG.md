@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.6.0](https://github.com/omnixys/contracts/compare/v1.5.1...v1.6.0) (2026-03-13)
+
+### Dto
+
+* **Dto:** add clientInfo ([](https://github.com/omnixys/contracts/commit/cd360da75883ee0240720c7dafa30c09dd124449))
+
 ## [1.5.1](https://github.com/omnixys/contracts/compare/v1.5.0...v1.5.1) (2026-03-13)
 
 ### Enum
