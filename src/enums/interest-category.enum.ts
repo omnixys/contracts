@@ -1,0 +1,10 @@
+export enum InterestCategoryType {
+  SPORTS = 'SPORTS',
+  MUSIC = 'MUSIC',
+  FINANCE = 'FINANCE',
+  REAL_ASSETS = 'REAL_ASSETS',
+  TECHNOLOGY = 'TECHNOLOGY',
+  LIFESTYLE = 'LIFESTYLE',
+}
+
+
