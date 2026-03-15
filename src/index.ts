@@ -2,9 +2,12 @@
 // DTO
 export * from './dtos/client-info.type.js'
 export * from './dtos/context.js'
-export * from './dtos/sign-up.js'
-export * from "./dtos/mail.dto.js";
+export * from './dtos/create-seat.dto.js'
 export * from "./dtos/kc-token.dto.js";
+export * from "./dtos/mail.dto.js";
+export * from "./dtos/seating-config.dto.js";
+export * from './dtos/sign-up.js'
+export * from './dtos/user.dto.js'
 
 // Enums
 export * from './enums/address-type.enum.js'
