@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [1.8.2](https://github.com/omnixys/contracts/compare/v1.8.1...v1.8.2) (2026-03-16)
+
+### Build
+
+* **Build:** fix build ([](https://github.com/omnixys/contracts/commit/60d7e60e11a572ecac3cfd3a9e61a61a519db445))
+
 ## [1.8.1](https://github.com/omnixys/contracts/compare/v1.8.0...v1.8.1) (2026-03-15)
 
 ### K
