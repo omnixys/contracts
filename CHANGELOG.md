@@ -3,6 +3,18 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.0](https://github.com/omnixys/shared/compare/v1.9.0...v2.0.0) (2026-03-17)
+
+### Dto
+
+* **Dto:** add addressDTO ([](https://github.com/omnixys/shared/commit/b9a297c8b7e9c6536c5873c3709543c6c193781b))
+* **Dto:** add EventActionDTO ([](https://github.com/omnixys/shared/commit/14ba0d47f4572cc05ec7bd1b6169937fa2bea80f))
+* **Dto:** update User dtos ([](https://github.com/omnixys/shared/commit/2161924c3caa6cf2835e3b96a148a426e988bab0))
+
+### Name
+
+* **Name:** update package name ([](https://github.com/omnixys/shared/commit/2845eefcfa78980b4dfcd788aa6d5018f7bc50a9))
+
 ## [1.9.0](https://github.com/omnixys/contracts/compare/v1.8.3...v1.9.0) (2026-03-16)
 
 ### Dto
