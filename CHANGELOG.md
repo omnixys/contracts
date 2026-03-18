@@ -3,6 +3,20 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.1](https://github.com/omnixys/shared/compare/v2.0.0...v2.0.1) (2026-03-18)
+
+### Dto
+
+* **Dto:** add TraceContexDTO ([](https://github.com/omnixys/shared/commit/9cd077742dbbb688487367c5be1c056fa0321821))
+
+### Other
+
+* **Other:** Merge branch 'main' of https://github.com/omnixys/schema ([](https://github.com/omnixys/shared/commit/f93cb6421cc9cc32cd6f455fd8d17911ad683b8f))
+
+### Release
+
+* **Release:** update Release ([](https://github.com/omnixys/shared/commit/37b46bf31f440a015fddd371f776f09e2c98c29a))
+
 ## [2.0.0](https://github.com/omnixys/shared/compare/v1.9.0...v2.0.0) (2026-03-17)
 
 ### Dto
