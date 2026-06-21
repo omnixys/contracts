@@ -1,203 +1,57 @@
-# 📦 @omnixys/shared
+# @omnixys/shared
 
-> **Shared domain shared for the Omnixys microservice ecosystem.**
+Compatibility facade and pure utility package for the Omnixys TypeScript
+platform.
 
-`@omnixys/shared` defines the **stable, versioned service shared** shared across all Omnixys microservices.
+New services should import domain DTOs, enums, schemas, and transport-neutral
+errors from `@omnixys/contracts`. Existing root imports from
+`@omnixys/shared` remain operational and resolve to the same canonical
+implementations.
 
-It contains:
+## Ownership
 
-* Domain enums
-* Shared DTOs
-* Value object interfaces
-* Cross-service type definitions
+`@omnixys/shared` owns:
 
-It does **not** contain:
+- pure, infrastructure-independent utilities;
+- deprecated request-context interfaces retained for source compatibility;
+- deprecated NestJS exception wrappers retained for runtime compatibility.
 
-* Business logic
-* Infrastructure (Kafka, Logger, Config)
-* Framework dependencies
-* Prisma models
-* GraphQL resolvers
+`@omnixys/shared` does not own:
 
-This package represents the **formal contract layer** between services.
+- domain DTOs, enums, schemas, or framework errors;
+- request context or token handling;
+- logging or observability;
+- Kafka, GraphQL, persistence, or configuration infrastructure.
 
----
-
-# 🏗 Architectural Purpose
-
-OmnixysSphere is built as a modular microservice platform .
-
-To ensure:
-
-* Type safety across services
-* Event payload consistency
-* Federation schema stability
-* Predictable versioning
-* Clear service boundaries
-
-All shared domain structures are centralized in this package.
-
-This enforces **Contract-Driven Architecture**.
-
----
-
-# 📁 Package Structure
-
-```text
-src/
-├── enums/
-│   ├── user-type.enum.ts
-│   ├── role-type.enum.ts
-│   ├── status-type.enum.ts
-│   └── ...
-├── dto/
-│   ├── pagination.dto.ts
-│   └── ...
-└── index.ts
-```
-
-Compiled output:
-
-```text
-dist/
-  index.js
-  index.d.ts
-```
-
----
-
-# 🚀 Installation
-
-## GitHub Packages Setup
-
-Create a `.npmrc` (globally recommended):
-
-```ini
-@omnixys:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
-```
-
-Set your token:
-
-```bash
-export NODE_AUTH_TOKEN=ghp_xxxxxxxxx
-```
-
-Then install:
-
-```bash
-pnpm add @omnixys/shared
-```
-
----
-
-# 🔐 Authentication
-
-For local publishing or installation you need a GitHub Personal Access Token with:
-
-* `read:packages`
-* `write:packages` (for publishing)
-
-In CI, use:
-
-```yaml
-env:
-  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-```
-
----
-
-# 🧠 Usage Example
+## New code
 
 ```ts
-import { UserType } from '@omnixys/shared';
-
-function assignRole(type: UserType) {
-  if (type === UserType.ADMIN) {
-    // ...
-  }
-}
+import {
+  CreatePendingUserDTO,
+  CreatePendingUserSchema,
+  UserType,
+} from '@omnixys/contracts';
 ```
 
----
+Install the canonical package directly:
 
-# 🧬 GraphQL Integration
+```bash
+pnpm add @omnixys/contracts
+```
 
-Enums must be registered inside each service:
+## Existing code
+
+The following remains compatible during the staged migration:
 
 ```ts
-import { registerEnumType } from '@nestjs/graphql';
-import { UserType } from '@omnixys/shared';
-
-registerEnumType(UserType, {
-  name: 'UserType',
-});
+import { CreatePendingUserDTO, UserType } from '@omnixys/shared';
 ```
 
-shared does not register GraphQL types automatically by design.
+No public shared export was removed in this migration. See
+[`MIGRATION.md`](./MIGRATION.md) for ownership and replacement guidance.
 
----
+## Versioning
 
-# 🔄 Versioning Strategy
-
-This package follows **Semantic Versioning (SemVer)**.
-
-| Change Type                | Version Bump |
-| -------------------------- | ------------ |
-| Add enum value             | MINOR        |
-| Add new type               | MINOR        |
-| Remove enum value          | MAJOR        |
-| Breaking structural change | MAJOR        |
-| Internal fix               | PATCH        |
-
-⚠ Enum values must never be removed in distributed systems unless performing a coordinated MAJOR upgrade.
-
----
-
-# 🛡 Stability Guarantees
-
-This package is considered:
-
-* Stable
-* Infrastructure-agnostic
-* Framework-independent
-* Backwards-compatible within minor versions
-
-Services must treat it as a formal contract boundary.
-
----
-
-# 🚫 Design Principles
-
-This package must remain:
-
-* Free of NestJS dependencies
-* Free of Kafka clients
-* Free of Logger utilities
-* Free of Config logic
-* Free of Prisma models
-
-If logic is required, it belongs in the respective service.
-
----
-
-# 🏛 Future Extensions
-
-Planned complementary packages:
-
-```text
-@omnixys/events
-@omnixys/kafka
-@omnixys/logger
-@omnixys/config
-```
-
-shared remains the foundational domain layer.
-
----
-
-# 📜 License
-
-Licensed under **GPL-3.0-or-later** 
-
-© 2026 Omnixys Technologies
+Both packages follow semantic versioning. Contract removals require a major
+release and a coordinated consumer migration. Compatibility exports are
+deprecated before removal.
