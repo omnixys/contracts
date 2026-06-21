@@ -1,8 +1,9 @@
-import { PhoneNumberDTO } from '../dtos/phone-number.dto.js';
+import type { PhoneNumberDTO } from '@omnixys/contracts';
 
-export function getPrimaryPhoneNumber(phoneNumbers?: PhoneNumberDTO[]): string | undefined {
+export function getPrimaryPhoneNumber(
+  phoneNumbers?: PhoneNumberDTO[],
+): string | undefined {
   if (!phoneNumbers || phoneNumbers.length === 0) {
-    console.error('No phone numbers provided');
     return;
   }
 
@@ -11,7 +12,6 @@ export function getPrimaryPhoneNumber(phoneNumbers?: PhoneNumberDTO[]): string |
   const selected = primary ?? phoneNumbers[0];
 
   if (!selected.countryCode || !selected.number) {
-    console.error('Invalid phone number data');
     return;
   }
 

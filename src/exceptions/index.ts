@@ -1,2 +1,21 @@
 export * from './too-many-requests.exception.js';
 export * from './invitation.exception.js';
+
+export {
+  EventAlreadyExistsException,
+  EventClosedException,
+  EventNotFoundException,
+  FrameworkException,
+  InvitationAlreadyExistsException,
+  NotificationChannelUnavailableException,
+  NotificationNotFoundException,
+  SeatAlreadyReservedException,
+  SeatCapacityExceededException,
+  SeatNotFoundException,
+  TicketAlreadyScannedException,
+  TicketNotFoundException,
+  TicketRevokedException,
+  UserAlreadyExistsException,
+  UserEmailAlreadyExistsException,
+  UserNotFoundException,
+} from '@omnixys/contracts/errors';

@@ -3,9 +3,12 @@
  * Provides access to both the incoming HTTP request and outgoing response.
  */
 
-import { Locale } from '../types/locale.type.js';
-import type { KeycloakRawOutput, KeycloakTokenPayload } from './kc.dto.js';
-import { TraceContextDTO } from './trace.dto.js';
+import type {
+  KeycloakRawOutput,
+  KeycloakTokenPayload,
+  Locale,
+  TraceContextDTO,
+} from '@omnixys/contracts';
 
 /**
  * Express request type containing Keycloak cookies.
@@ -24,6 +27,7 @@ export interface GqlCtx {
   res: Response;
 }
 
+/** @deprecated Use ClientMetadata from `@omnixys/context`. */
 export interface ClientContext {
   ip: string | undefined;
   userAgent: string | undefined;
@@ -34,16 +38,18 @@ export interface ClientContext {
   locale: Locale;
 }
 
-
+/** @deprecated Use PrincipalContext from `@omnixys/context`. */
 export interface ActorContext {
   actorId?: string;
   roles?: string[];
 }
 
+/** @deprecated Use TenantContext from `@omnixys/context`. */
 export interface TenantContext {
   tenantId?: string;
 }
 
+/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
 export interface RequestContext {
   requestId?: string;
   correlationId?: string;
@@ -58,6 +64,7 @@ export interface RuntimeContext {
   version?: string;
 }
 
+/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
 export interface UnifiedContext {
   trace?: TraceContextDTO;
   actor?: ActorContext;

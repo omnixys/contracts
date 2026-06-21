@@ -25,7 +25,6 @@ export class RsvpNotAcceptedException extends BadRequestException {
   }
 }
 
-
 export class InvitationNotFoundException extends NotFoundException {
   constructor(invitationId?: string) {
     super({
