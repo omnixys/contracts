@@ -1,5 +1,5 @@
 {
-  "name": "@omnixys/shared",
+  "name": "@omnixys/contracts",
   "version": "1.0.0",
   "description": "Transport-neutral DTOs, enums, schemas, and domain errors for Omnixys services.",
   "type": "module",
@@ -47,12 +47,12 @@
     "prebuild": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "build": "tsc -p tsconfig.json",
     "test": "pnpm run build && pnpm run test:types && node --test test/*.test.mjs",
-        "release": "semantic-release",
+    "release": "semantic-release",
     "test:types": "tsc -p tsconfig.type-tests.json"
   },
   "keywords": [
     "omnixys",
-    "shared",
+    "contracts",
     "dto",
     "schema",
     "typescript"
@@ -63,14 +63,15 @@
   },
   "devDependencies": {
     "@nestjs/common": "^11.1.27",
-    "@types/node": "^25.6.0",
-        "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.6",
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
-        "semantic-release": "^25.0.3",
+    "@types/node": "^25.6.0",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "semantic-release": "^25.0.3",
     "typescript": "^5.9.3"
   },
   "peerDependencies": {

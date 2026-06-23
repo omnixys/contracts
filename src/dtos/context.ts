@@ -8,7 +8,7 @@ import type {
   KeycloakTokenPayload,
   Locale,
   TraceContextDTO,
-} from '@omnixys/shared';
+} from '@omnixys/contracts';
 
 /**
  * Express request type containing Keycloak cookies.

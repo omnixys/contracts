@@ -1,6 +1,6 @@
 import {
-  SharedSchemaNotFoundError,
-  SharedSchemaRegistry,
+  ContractSchemaNotFoundError,
+  ContractSchemaRegistry,
   ERROR_CODES,
   ErrorCode,
   EventClosedException,
@@ -78,7 +78,7 @@ test("user schemas validate and normalize contract dates", () => {
 });
 
 test("schema registry enforces explicit versions and validates envelopes", () => {
-  const registry = new SharedSchemaRegistry();
+  const registry = new ContractSchemaRegistry();
   const schema = contractEnvelopeSchema(
     z.object({ userId: z.string().uuid() }),
   );
@@ -96,7 +96,7 @@ test("schema registry enforces explicit versions and validates envelopes", () =>
   assert.deepEqual(registry.diagnostics(), { schemas: ["user.deleted@1.0"] });
   assert.throws(
     () => registry.parse("user.deleted", "2.0", {}),
-    SharedSchemaNotFoundError,
+    ContractSchemaNotFoundError,
   );
 });
 

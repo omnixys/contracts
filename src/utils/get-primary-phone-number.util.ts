@@ -1,4 +1,4 @@
-import type { PhoneNumberDTO } from '@omnixys/shared';
+import { PhoneNumberDTO } from "../dtos/phone-number.dto.js";
 
 export function getPrimaryPhoneNumber(
   phoneNumbers?: PhoneNumberDTO[],

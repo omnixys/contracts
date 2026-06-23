@@ -1,4 +1,4 @@
-import type { Locale } from '@omnixys/shared';
+import { Locale } from "../types/locale.type.js";
 
 export type Language =
   | 'ENGLISH'

@@ -1,6 +1,6 @@
 import type { z } from "zod";
 
-export class SharedSchemaNotFoundError extends Error {
+export class ContractSchemaNotFoundError extends Error {
   readonly code = "CONTRACT_SCHEMA_NOT_FOUND";
 
   constructor(
@@ -8,11 +8,11 @@ export class SharedSchemaNotFoundError extends Error {
     readonly version: string,
   ) {
     super(`No schema registered for ${contract}@${version}`);
-    this.name = SharedSchemaNotFoundError.name;
+    this.name = ContractSchemaNotFoundError.name;
   }
 }
 
-export class SharedSchemaRegistry {
+export class ContractSchemaRegistry {
   private readonly schemas = new Map<string, z.ZodType>();
 
   register<T extends z.ZodType>(
@@ -23,7 +23,7 @@ export class SharedSchemaRegistry {
     const key = schemaKey(contract, version);
     const existing = this.schemas.get(key);
     if (existing && existing !== schema) {
-      throw new Error(`Shared schema ${key} is already registered`);
+      throw new Error(`Contract schema ${key} is already registered`);
     }
     this.schemas.set(key, schema);
     return this;
@@ -31,7 +31,7 @@ export class SharedSchemaRegistry {
 
   parse<T>(contract: string, version: string, value: unknown): T {
     const schema = this.schemas.get(schemaKey(contract, version));
-    if (!schema) throw new SharedSchemaNotFoundError(contract, version);
+    if (!schema) throw new ContractSchemaNotFoundError(contract, version);
     return schema.parse(value) as T;
   }
 
@@ -45,10 +45,10 @@ export class SharedSchemaRegistry {
 }
 
 function schemaKey(contract: string, version: string): string {
-  const normalizedShared = contract.trim();
-  if (!normalizedShared) throw new TypeError("Shared name is required");
+  const normalizedContracts = contract.trim();
+  if (!normalizedContracts) throw new TypeError("Contracts name is required");
   if (!/^\d+\.\d+$/.test(version)) {
-    throw new TypeError("Shared schema version must use major.minor format");
+    throw new TypeError("Contracts schema version must use major.minor format");
   }
-  return `${normalizedShared}@${version}`;
+  return `${normalizedContracts}@${version}`;
 }

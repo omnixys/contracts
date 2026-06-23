@@ -1,6 +1,6 @@
-# @omnixys/shared
+# @omnixys/contracts
 
-Canonical, transport-neutral shared for Omnixys services.
+Canonical, transport-neutral contracts for Omnixys services.
 
 This package owns DTOs, enums, runtime schemas, schema-version registration,
 and domain errors. It does not own logging, request context, observability,
@@ -8,14 +8,14 @@ NestJS transport exceptions, or business services.
 
 ```ts
 import {
-  SharedSchemaRegistry,
+  ContractSchemaRegistry,
   ErrorCode,
   createPendingUserSchema,
   UserNotFoundException,
-} from "@omnixys/shared";
+} from "@omnixys/contracts";
 
 const pendingUser = createPendingUserSchema.parse(input);
-const registry = new SharedSchemaRegistry().register(
+const registry = new ContractSchemaRegistry().register(
   "user.pending",
   "1.0",
   createPendingUserSchema,
