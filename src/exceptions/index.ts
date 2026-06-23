@@ -18,4 +18,4 @@ export {
   UserAlreadyExistsException,
   UserEmailAlreadyExistsException,
   UserNotFoundException,
-} from '@omnixys/contracts/errors';
+} from '@omnixys/shared/errors';

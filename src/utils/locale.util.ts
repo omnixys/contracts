@@ -1,4 +1,4 @@
-import type { Locale } from '@omnixys/contracts';
+import type { Locale } from '@omnixys/shared';
 
 export type Language =
   | 'ENGLISH'

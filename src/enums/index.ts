@@ -1,2 +1,15 @@
-/** @deprecated Import enums from `@omnixys/contracts/enums`. */
-export * from '@omnixys/contracts/enums';
+export * from "./address-type.enum.js";
+export * from "./contact-options-type.enum.js";
+export * from "./gender-type.enum.js";
+export * from "./interest-category.enum.js";
+export * from "./interest-type.enum.js";
+export * from "./log.enum.js";
+export * from "./marital-status-type.enum.js";
+export * from "./person-status.enum.js";
+export * from "./phone-number-type.enum.js";
+export * from "./relationship-type.enum.js";
+export * from "./role-type.enum.js";
+export * from "./status-type.enum.js";
+export * from "./user-type.enum.js";
+export * from "./whatsapp-message-direction.enum.js";
+export * from "./event-role-type.enum.js";

@@ -16,6 +16,7 @@
 
 # dependencies
 node_modules/
+node_profiles/
 
 # build output
 dist/
@@ -45,3 +46,8 @@ coverage/
 # OS files
 .DS_Store
 Thumbs.db
+
+node_modules
+dist
+.npmrc
+TODO.md

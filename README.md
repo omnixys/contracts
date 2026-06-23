@@ -1,57 +1,41 @@
 # @omnixys/shared
 
-Compatibility facade and pure utility package for the Omnixys TypeScript
-platform.
+Canonical, transport-neutral shared for Omnixys services.
 
-New services should import domain DTOs, enums, schemas, and transport-neutral
-errors from `@omnixys/contracts`. Existing root imports from
-`@omnixys/shared` remain operational and resolve to the same canonical
-implementations.
-
-## Ownership
-
-`@omnixys/shared` owns:
-
-- pure, infrastructure-independent utilities;
-- deprecated request-context interfaces retained for source compatibility;
-- deprecated NestJS exception wrappers retained for runtime compatibility.
-
-`@omnixys/shared` does not own:
-
-- domain DTOs, enums, schemas, or framework errors;
-- request context or token handling;
-- logging or observability;
-- Kafka, GraphQL, persistence, or configuration infrastructure.
-
-## New code
+This package owns DTOs, enums, runtime schemas, schema-version registration,
+and domain errors. It does not own logging, request context, observability,
+NestJS transport exceptions, or business services.
 
 ```ts
 import {
-  CreatePendingUserDTO,
-  CreatePendingUserSchema,
-  UserType,
-} from '@omnixys/contracts';
+  SharedSchemaRegistry,
+  ErrorCode,
+  createPendingUserSchema,
+  UserNotFoundException,
+} from "@omnixys/shared";
+
+const pendingUser = createPendingUserSchema.parse(input);
+const registry = new SharedSchemaRegistry().register(
+  "user.pending",
+  "1.0",
+  createPendingUserSchema,
+);
+
+throw new UserNotFoundException(userId, {
+  context: { requestId, correlationId, actorId, tenantId },
+});
+
+if (error.code === ErrorCode.USER_NOT_FOUND) {
+  // Map the stable code; never branch on error.message.
+}
 ```
 
-Install the canonical package directly:
+Schemas use explicit `major.minor` versions. Breaking payload changes require a
+new major schema version; additive compatible changes require a new minor.
 
-```bash
-pnpm add @omnixys/contracts
-```
+## Error codes
 
-## Existing code
-
-The following remains compatible during the staged migration:
-
-```ts
-import { CreatePendingUserDTO, UserType } from '@omnixys/shared';
-```
-
-No public shared export was removed in this migration. See
-[`MIGRATION.md`](./MIGRATION.md) for ownership and replacement guidance.
-
-## Versioning
-
-Both packages follow semantic versioning. Contract removals require a major
-release and a coordinated consumer migration. Compatibility exports are
-deprecated before removal.
+`ErrorCode` is the canonical wire vocabulary for backend transports and clients.
+Existing values are immutable. New failures are introduced additively, and
+messages remain human-readable diagnostics rather than control-flow identifiers.
+Transport packages map `FrameworkException.code` without changing it.

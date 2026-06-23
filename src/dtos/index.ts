@@ -1,5 +1,14 @@
-/** @deprecated Import DTOs from `@omnixys/contracts/dtos`. */
-export * from '@omnixys/contracts/dtos';
-
-// Legacy request context types remain temporarily for source compatibility.
+export * from "./address.dto.js";
+export * from "./auth.dto.js";
+export * from "./event.dto.js";
+export * from "./invitation.dto.js";
+export * from "./kc.dto.js";
+export * from "./log.dto.js";
+export * from "./notification.dto.js";
+export * from "./phone-number.dto.js";
+export * from "./seat.dto.js";
+export * from "./ticket.dto.js";
+export * from "./token.dto.js";
+export * from "./trace.dto.js";
+export * from "./user.dto.js";
 export * from './context.js';

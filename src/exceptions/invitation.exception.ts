@@ -25,17 +25,17 @@ export class RsvpNotAcceptedException extends BadRequestException {
   }
 }
 
-export class InvitationNotFoundException extends NotFoundException {
-  constructor(invitationId?: string) {
-    super({
-      code: 'INVITATION_NOT_FOUND',
-      message: invitationId
-        ? `Invitation with id ${invitationId} not found.`
-        : 'Invitation not found.',
-      errorId: 2000,
-    });
-  }
-}
+// export class InvitationNotFoundException extends NotFoundException {
+//   constructor(invitationId?: string) {
+//     super({
+//       code: 'INVITATION_NOT_FOUND',
+//       message: invitationId
+//         ? `Invitation with id ${invitationId} not found.`
+//         : 'Invitation not found.',
+//       errorId: 2000,
+//     });
+//   }
+// }
 
 export class MissingGuestNameException extends BadRequestException {
   constructor(missing: string[]) {
@@ -47,15 +47,15 @@ export class MissingGuestNameException extends BadRequestException {
   }
 }
 
-export class InvitationAlreadyApprovedException extends BadRequestException {
-  constructor() {
-    super({
-      code: 'INVITATION_ALREADY_APPROVED',
-      message: 'Invitation has already been approved.',
-      errorId: 2004,
-    });
-  }
-}
+// export class InvitationAlreadyApprovedException extends BadRequestException {
+//   constructor() {
+//     super({
+//       code: 'INVITATION_ALREADY_APPROVED',
+//       message: 'Invitation has already been approved.',
+//       errorId: 2004,
+//     });
+//   }
+// }
 
 export class InvitationAlreadyRejectedException extends BadRequestException {
   constructor() {

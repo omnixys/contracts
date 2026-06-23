@@ -1,4 +1,4 @@
-import type { PhoneNumberDTO } from '@omnixys/contracts';
+import type { PhoneNumberDTO } from '@omnixys/shared';
 
 export function getPrimaryPhoneNumber(
   phoneNumbers?: PhoneNumberDTO[],

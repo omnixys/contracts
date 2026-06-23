@@ -1,66 +1,71 @@
 {
   "name": "@omnixys/shared",
   "version": "1.0.0",
+  "description": "Transport-neutral DTOs, enums, schemas, and domain errors for Omnixys services.",
   "type": "module",
   "private": false,
   "packageManager": "pnpm@10.33.0",
-  "description": "Compatibility re-exports and shared pure utilities for Omnixys services",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./schemas": {
+      "types": "./dist/schemas/index.d.ts",
+      "import": "./dist/schemas/index.js"
+    },
+    "./errors": {
+      "types": "./dist/errors/index.d.ts",
+      "import": "./dist/errors/index.js"
+    },
+    "./dtos": {
+      "types": "./dist/dtos/index.d.ts",
+      "import": "./dist/dtos/index.js"
+    },
+    "./enums": {
+      "types": "./dist/enums/index.d.ts",
+      "import": "./dist/enums/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js"
     }
   },
-  "files": [
-    "dist",
-    "MIGRATION.md"
-  ],
+  "sideEffects": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "build": "tsc -p tsconfig.json",
     "test": "pnpm run build && pnpm run test:types && node --test test/*.test.mjs",
-    "test:types": "tsc -p tsconfig.type-tests.json",
-    "format": "prettier --cache --write \"src/**/*.{ts,js,json,prisma,md,yaml}\"",
-    "clean": "rimraf dist",
-    "build:tsup": "tsup src/index.ts --format esm,cjs --dts",
-    "patch": "pnpm version patch",
-    "release": "semantic-release",
-    "dev": "tsc -w"
+    "test:types": "tsc -p tsconfig.type-tests.json"
   },
   "keywords": [
     "omnixys",
     "shared",
-    "utilities",
-    "types",
-    "nestjs",
-    "microservices"
+    "dto",
+    "schema",
+    "typescript"
   ],
   "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "zod": "^4.2.1"
+  },
   "devDependencies": {
-    "@commitlint/config-conventional": "^20.4.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^12.0.6",
-    "@semantic-release/npm": "^13.1.5",
-    "@semantic-release/release-notes-generator": "^14.1.0",
-    "@swc/core": "^1.15.21",
-    "prettier": "^3.8.1",
-    "prettier-plugin-organize-imports": "^4.3.0",
-    "prettier-plugin-sort-imports": "^1.8.11",
-    "semantic-release": "^25.0.3",
-    "tsup": "^8.5.1",
+    "@nestjs/common": "^11.1.27",
+    "@types/node": "^25.6.0",
     "typescript": "^5.9.3"
   },
-  "dependencies": {
-    "@omnixys/contracts": "file:../contracts"
-  },
   "peerDependencies": {
-    "@nestjs/common": "^11.0.0"
+    "@nestjs/common": "^11.1.27"
   }
 }
