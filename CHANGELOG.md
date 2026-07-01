@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.0.1](https://github.com/omnixys/contracts/compare/v2.0.0...v2.0.1) (2026-07-01)
+
+### Error
+
+* **Error:** update error codes ([](https://github.com/omnixys/contracts/commit/b8873b31f688984b2993381a0d125ee7c00281e7))
+
 ## [2.0.0](https://github.com/omnixys/contracts/compare/v1.0.0...v2.0.0) (2026-06-23)
 
 ### Contracts
