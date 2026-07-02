@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.1.0](https://github.com/omnixys/contracts/compare/v2.0.1...v2.1.0) (2026-07-02)
+
+### EventDTO
+
+* **EventDTO:** update eventCreateDTO ([](https://github.com/omnixys/contracts/commit/c2e1a0ed040507788d0793031f8cbff903f5228a))
+
 ## [2.0.0](https://github.com/omnixys/contracts/compare/v1.0.0...v2.0.0) (2026-06-23)
 
 ### Contracts
