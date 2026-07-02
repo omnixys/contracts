@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.1.1](https://github.com/omnixys/contracts/compare/v2.1.0...v2.1.1) (2026-07-02)
+
+### EventCreateDTO
+
+* **EventCreateDTO:** add allowGuestSeatSelection ([](https://github.com/omnixys/contracts/commit/27a8bee37947dd947fb3675cc8765dec69d917f6))
+
 ## [2.1.0](https://github.com/omnixys/contracts/compare/v2.0.1...v2.1.0) (2026-07-02)
 
 ### EventDTO
