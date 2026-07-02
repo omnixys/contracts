@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [2.1.2](https://github.com/omnixys/contracts/compare/v2.1.1...v2.1.2) (2026-07-02)
+
+### TicketReleaseAt
+
+* **TicketReleaseAt:** Update event.dto.ts ([](https://github.com/omnixys/contracts/commit/d20fbcca3297d92a02ff0701f0d17f89fe73ae02))
+
 ## [2.1.1](https://github.com/omnixys/contracts/compare/v2.1.0...v2.1.1) (2026-07-02)
 
 ### EventCreateDTO
