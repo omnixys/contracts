@@ -78,3 +78,31 @@ export interface EventOwnerChangedDTO extends EventIdDTO {
   changedBy: string;
   occurredAt: string;
 }
+
+/** Broadcast when an event is created — carries all settings downstream services need. */
+export interface EventCreatedDTO extends EventIdDTO {
+  name: string;
+  endsAt: string;
+  approvalMode: string;
+  maxSeats: number;
+  startsAt: string;
+  allowPublicRsvp: boolean;
+  allowPublicPlusOne: boolean;
+  rsvpDeadline?: string;
+  category?: string;
+  occurredAt: string;
+}
+
+/** Broadcast when an event settings are updated — all fields optional, full replacement. */
+export interface EventUpdatedDTO extends EventIdDTO {
+  name?: string;
+  endsAt?: string;
+  approvalMode?: string;
+  maxSeats?: number;
+  startsAt?: string;
+  allowPublicRsvp?: boolean;
+  allowPublicPlusOne?: boolean;
+  rsvpDeadline?: string;
+  category?: string;
+  occurredAt: string;
+}

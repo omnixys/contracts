@@ -29,10 +29,13 @@ export interface CreateGuestDTO extends UserTokenDTO {
   invitationId: string;
 }
 
+export type PlusOneAgeCategoryDTO = "OVER_SIX" | "UNDER_SIX";
+
 export interface PublicPlusOneDTO {
   firstName: string;
   lastName: string;
   email?: string;
+  plusOneAgeCategory?: PlusOneAgeCategoryDTO;
 }
 export interface PublicPlusOneWithIdDTO {
   firstName: string;
@@ -40,6 +43,7 @@ export interface PublicPlusOneWithIdDTO {
   email?: string;
   invitationId: string;
   phoneNumbers?: PhoneNumberDTO[];
+  plusOneAgeCategory?: PlusOneAgeCategoryDTO;
 }
 
 export interface CreatePendingUserDTO extends ActorIdDTO {
@@ -52,8 +56,11 @@ export interface CreatePendingUserDTO extends ActorIdDTO {
   firstName: string;
   lastName: string;
   phoneNumbers?: PhoneNumberDTO[];
+  plusOneAgeCategory?: PlusOneAgeCategoryDTO;
   locale: Locale;
   plusOnes?: PublicPlusOneWithIdDTO[];
+  selectedInvitedBy?: string[];
+  guestNote?: string;
   eventEndsAt: Date;
 }
 
@@ -69,6 +76,7 @@ export interface GuestUserKey extends ActorIdDTO {
 
     email?: string;
     phoneNumbers?: PhoneNumberDTO[];
+    plusOneAgeCategory?: PlusOneAgeCategoryDTO;
   }>;
 }
 
@@ -82,6 +90,7 @@ export interface GuestInvitee {
   phoneNumbers?: PhoneNumberDTO[];
 
   isPrimary: boolean;
+  plusOneAgeCategory?: PlusOneAgeCategoryDTO;
 }
 
 export interface CreatePlusOneAccountDTO {
@@ -90,4 +99,5 @@ export interface CreatePlusOneAccountDTO {
 
   email?: string;
   phoneNumbers?: PhoneNumberDTO[];
+  plusOneAgeCategory?: PlusOneAgeCategoryDTO;
 }
