@@ -89,6 +89,7 @@ export interface EventCreatedDTO extends EventIdDTO {
   allowPublicRsvp: boolean;
   allowPublicPlusOne: boolean;
   allowGuestSeatSelection: boolean;
+  ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
   occurredAt: string;
@@ -104,6 +105,7 @@ export interface EventUpdatedDTO extends EventIdDTO {
   allowPublicRsvp?: boolean;
   allowPublicPlusOne?: boolean;
   allowGuestSeatSelection?: boolean;
+  ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
   occurredAt: string;
