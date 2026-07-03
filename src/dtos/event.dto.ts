@@ -79,6 +79,24 @@ export interface EventOwnerChangedDTO extends EventIdDTO {
   occurredAt: string;
 }
 
+export interface SeatColorGroupStyleDTO {
+  background: string;
+  foreground: string;
+  border: string;
+  legendIcon: string;
+}
+
+export interface SeatColorGroupDTO {
+  id: string;
+  name: string;
+  style: SeatColorGroupStyleDTO;
+  matchType: 'SINGLE' | 'CUSTOM' | 'ALL' | 'NONE';
+  invitedByValues: string[];
+  priority: number;
+  order: number;
+  isOrphaned: boolean;
+}
+
 /** Broadcast when an event is created — carries all settings downstream services need. */
 export interface EventCreatedDTO extends EventIdDTO {
   name: string;
@@ -92,6 +110,7 @@ export interface EventCreatedDTO extends EventIdDTO {
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
+  seatColorGroups?: SeatColorGroupDTO[];
   occurredAt: string;
 }
 
@@ -108,5 +127,6 @@ export interface EventUpdatedDTO extends EventIdDTO {
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
+  seatColorGroups?: SeatColorGroupDTO[];
   occurredAt: string;
 }

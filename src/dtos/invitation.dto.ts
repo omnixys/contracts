@@ -7,3 +7,10 @@ export interface AddGuestIdToInvitationDTO extends UserActionDTO {
 export interface CreateUserWithInvitationIdDTO extends UserTokenDTO {
   invitationId: string;
 }
+
+export interface InvitationSeatingInfoUpdatedDTO {
+  eventId: string;
+  invitationId: string;
+  guestId: string;
+  selectedInvitedBy: string[];
+}
