@@ -1,6 +1,13 @@
 import { TokenDTO } from "./token.dto.js";
 import { ActorIdDTO, PublicPlusOneDTO, UserIdDTO } from "./user.dto.js";
 import { EventRoleType } from '../enums/event-role-type.enum.js';
+import { EventVisibleTab } from '../enums/event-visible-tab.enum.js';
+import type {
+  EventPermissionCategory,
+  EventPermissionKey,
+} from '../enums/event-permission-key.enum.js';
+import type { EventSystemRoleKey } from '../utils/event-rbac.util.js';
+import { SeatColorGroupMatchType } from '../enums/seat-color-group-match-type.enum.js';
 
 export interface EventIdDTO {
   eventId: string;
@@ -71,6 +78,57 @@ export interface EventRoleRemovedDTO extends EventIdDTO {
   occurredAt: string;
 }
 
+/** @version 2.0 */
+export interface EventPermissionDTO {
+  key: EventPermissionKey;
+  category: EventPermissionCategory;
+  label: string;
+  description: string;
+  premiumFeatureKey?: string;
+}
+
+/** @version 2.0 */
+export interface EventRoleDefinitionDTO extends EventIdDTO {
+  roleId: string;
+  key: string;
+  name: string;
+  description?: string;
+  color?: string;
+  icon?: string;
+  systemKey?: EventSystemRoleKey;
+  archivedAt?: string;
+  permissionKeys: EventPermissionKey[];
+}
+
+/** @version 2.0 */
+export interface EventUserRoleAssignmentDTO extends EventIdDTO {
+  userId: string;
+  roleId: string;
+  assignedBy: string;
+  occurredAt: string;
+}
+
+/** @version 2.0 */
+export interface EventUserRoleRemovalDTO extends EventIdDTO {
+  userId: string;
+  roleId: string;
+  removedBy: string;
+  occurredAt: string;
+}
+
+/** @version 2.0 */
+export interface EventAccessDTO extends EventIdDTO {
+  userId: string;
+  roles: EventRoleDefinitionDTO[];
+  permissions: EventPermissionKey[];
+  occurredAt: string;
+}
+
+/** @version 2.0 */
+export interface EventRoleDefinitionChangedDTO extends EventIdDTO {
+  occurredAt: string;
+}
+
 /** @version 1.0 */
 export interface EventOwnerChangedDTO extends EventIdDTO {
   oldOwnerId: string;
@@ -90,7 +148,7 @@ export interface SeatColorGroupDTO {
   id: string;
   name: string;
   style: SeatColorGroupStyleDTO;
-  matchType: 'SINGLE' | 'CUSTOM' | 'ALL' | 'NONE';
+  matchType: SeatColorGroupMatchType;
   invitedByValues: string[];
   priority: number;
   order: number;
@@ -103,13 +161,16 @@ export interface EventCreatedDTO extends EventIdDTO {
   endsAt: string;
   approvalMode: string;
   maxSeats: number;
+  requireApprovalForPlusOnes: boolean;
   startsAt: string;
   allowPublicRsvp: boolean;
   allowPublicPlusOne: boolean;
   allowGuestSeatSelection: boolean;
+  scheduleTicketRelease: boolean;
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
+  visibleTabs?: EventVisibleTab[];
   seatColorGroups?: SeatColorGroupDTO[];
   occurredAt: string;
 }
@@ -120,13 +181,16 @@ export interface EventUpdatedDTO extends EventIdDTO {
   endsAt?: string;
   approvalMode?: string;
   maxSeats?: number;
+  requireApprovalForPlusOnes?: boolean;
   startsAt?: string;
   allowPublicRsvp?: boolean;
   allowPublicPlusOne?: boolean;
   allowGuestSeatSelection?: boolean;
+  scheduleTicketRelease?: boolean;
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
+  visibleTabs?: EventVisibleTab[];
   seatColorGroups?: SeatColorGroupDTO[];
   occurredAt: string;
 }

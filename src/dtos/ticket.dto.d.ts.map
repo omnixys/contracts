@@ -1,0 +1,1 @@
+{"version":3,"file":"ticket.dto.d.ts","sourceRoot":"","sources":["ticket.dto.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,UAAU,EAAmC,MAAM,eAAe,CAAC;AAE5E,MAAM,WAAW,cAAe,SAAQ,UAAU;IAChD,OAAO,EAAE,MAAM,CAAC;IAEhB,OAAO,EAAE,KAAK,CAAC;QACb,YAAY,EAAE,MAAM,CAAC;QACrB,MAAM,EAAE,MAAM,CAAC;KAChB,CAAC,CAAC;CACJ"}

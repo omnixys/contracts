@@ -1,0 +1,305 @@
+export const EventPermissionKey = {
+  ViewEvent: 'event.view',
+  EditEvent: 'event.edit',
+  DeleteEvent: 'event.delete',
+
+  ViewGuests: 'guests.view',
+  ManageGuests: 'guests.manage',
+  ApproveGuests: 'guests.approve',
+  ExportGuests: 'guests.export',
+
+  ViewInvitations: 'invitations.view',
+  ManageInvitations: 'invitations.manage',
+
+  ViewSeats: 'seats.view',
+  ViewSelfSeat: 'seats.self.view',
+  ManageSeats: 'seats.manage',
+
+  ViewTickets: 'tickets.view',
+  ViewSelfTicket: 'tickets.self.view',
+  ManageTickets: 'tickets.manage',
+  ScanTickets: 'tickets.scan',
+
+  ManagePlusOnes: 'plus_ones.manage',
+  ManageSelfPlusOnes: 'plus_ones.self.manage',
+
+  ViewAnalytics: 'analytics.view',
+
+  ViewSupport: 'support.view',
+  ManageSupport: 'support.manage',
+  RespondSupport: 'support.respond',
+
+  ViewNotifications: 'notifications.view',
+  SendNotifications: 'notifications.send',
+
+  ViewTimeline: 'timeline.view',
+  ManageTimeline: 'timeline.manage',
+
+  ViewEventSettings: 'settings.view',
+  ManageEventSettings: 'settings.manage',
+
+  ViewRoles: 'roles.view',
+  ManageRoles: 'roles.manage',
+
+  ViewStaff: 'staff.view',
+  ManageStaff: 'staff.manage',
+
+  ViewMedia: 'media.view',
+  ManageMedia: 'media.manage',
+
+  ExportData: 'data.export',
+  ViewAuditLog: 'audit.view',
+} as const;
+
+export type EventPermissionKey =
+  (typeof EventPermissionKey)[keyof typeof EventPermissionKey];
+
+export const EVENT_PERMISSION_KEYS = Object.values(EventPermissionKey);
+
+export type EventPermissionCategory =
+  | 'event'
+  | 'guests'
+  | 'invitations'
+  | 'seats'
+  | 'tickets'
+  | 'plus_ones'
+  | 'analytics'
+  | 'support'
+  | 'notifications'
+  | 'timeline'
+  | 'settings'
+  | 'roles'
+  | 'staff'
+  | 'media'
+  | 'data'
+  | 'audit';
+
+export interface EventPermissionDefinition {
+  key: EventPermissionKey;
+  category: EventPermissionCategory;
+  label: string;
+  description: string;
+  premiumFeatureKey?: string;
+}
+
+export const EVENT_PERMISSION_DEFINITIONS: readonly EventPermissionDefinition[] =
+  [
+    {
+      key: EventPermissionKey.ViewEvent,
+      category: 'event',
+      label: 'View event',
+      description: 'View the event overview and core event details.',
+    },
+    {
+      key: EventPermissionKey.EditEvent,
+      category: 'event',
+      label: 'Edit event',
+      description: 'Update core event details.',
+    },
+    {
+      key: EventPermissionKey.DeleteEvent,
+      category: 'event',
+      label: 'Delete event',
+      description: 'Delete the event.',
+    },
+    {
+      key: EventPermissionKey.ViewGuests,
+      category: 'guests',
+      label: 'View guests',
+      description: 'View guest lists and guest details.',
+    },
+    {
+      key: EventPermissionKey.ManageGuests,
+      category: 'guests',
+      label: 'Manage guests',
+      description: 'Create and update guest records.',
+    },
+    {
+      key: EventPermissionKey.ApproveGuests,
+      category: 'guests',
+      label: 'Approve guests',
+      description: 'Approve guest and plus-one requests.',
+    },
+    {
+      key: EventPermissionKey.ExportGuests,
+      category: 'guests',
+      label: 'Export guests',
+      description: 'Export guest data.',
+    },
+    {
+      key: EventPermissionKey.ViewInvitations,
+      category: 'invitations',
+      label: 'View invitations',
+      description: 'View invitations and RSVP status.',
+    },
+    {
+      key: EventPermissionKey.ManageInvitations,
+      category: 'invitations',
+      label: 'Manage invitations',
+      description: 'Create, update, approve, and delete invitations.',
+    },
+    {
+      key: EventPermissionKey.ViewSeats,
+      category: 'seats',
+      label: 'View seats',
+      description: 'View seating plans and seat assignments.',
+    },
+    {
+      key: EventPermissionKey.ViewSelfSeat,
+      category: 'seats',
+      label: 'View own seat',
+      description: 'View the authenticated guest’s assigned seat.',
+    },
+    {
+      key: EventPermissionKey.ManageSeats,
+      category: 'seats',
+      label: 'Manage seats',
+      description: 'Create and update seating plans.',
+    },
+    {
+      key: EventPermissionKey.ViewTickets,
+      category: 'tickets',
+      label: 'View tickets',
+      description: 'View ticket information.',
+    },
+    {
+      key: EventPermissionKey.ViewSelfTicket,
+      category: 'tickets',
+      label: 'View own ticket',
+      description: 'View the authenticated guest’s own ticket.',
+    },
+    {
+      key: EventPermissionKey.ManageTickets,
+      category: 'tickets',
+      label: 'Manage tickets',
+      description: 'Create, update, revoke, and reissue tickets.',
+    },
+    {
+      key: EventPermissionKey.ScanTickets,
+      category: 'tickets',
+      label: 'Scan tickets',
+      description: 'Scan QR codes and check tickets in or out.',
+    },
+    {
+      key: EventPermissionKey.ManagePlusOnes,
+      category: 'plus_ones',
+      label: 'Manage plus-ones',
+      description: 'Manage plus-one records and approvals.',
+    },
+    {
+      key: EventPermissionKey.ManageSelfPlusOnes,
+      category: 'plus_ones',
+      label: 'Manage own plus-ones',
+      description: 'Manage plus-one records owned by the authenticated guest.',
+    },
+    {
+      key: EventPermissionKey.ViewAnalytics,
+      category: 'analytics',
+      label: 'View analytics',
+      description: 'View event analytics and dashboards.',
+    },
+    {
+      key: EventPermissionKey.ViewSupport,
+      category: 'support',
+      label: 'View support',
+      description: 'View support conversations.',
+    },
+    {
+      key: EventPermissionKey.ManageSupport,
+      category: 'support',
+      label: 'Manage support',
+      description: 'Assign, close, and administer support conversations.',
+    },
+    {
+      key: EventPermissionKey.RespondSupport,
+      category: 'support',
+      label: 'Respond support',
+      description: 'Reply to support conversations.',
+    },
+    {
+      key: EventPermissionKey.ViewNotifications,
+      category: 'notifications',
+      label: 'View notifications',
+      description: 'View notification history and status.',
+    },
+    {
+      key: EventPermissionKey.SendNotifications,
+      category: 'notifications',
+      label: 'Send notifications',
+      description: 'Send event notifications.',
+    },
+    {
+      key: EventPermissionKey.ViewTimeline,
+      category: 'timeline',
+      label: 'View timeline',
+      description: 'View event timeline entries.',
+    },
+    {
+      key: EventPermissionKey.ManageTimeline,
+      category: 'timeline',
+      label: 'Manage timeline',
+      description: 'Create, update, and remove event timeline entries.',
+    },
+    {
+      key: EventPermissionKey.ViewEventSettings,
+      category: 'settings',
+      label: 'View event settings',
+      description: 'View event settings.',
+    },
+    {
+      key: EventPermissionKey.ManageEventSettings,
+      category: 'settings',
+      label: 'Manage event settings',
+      description: 'Update event settings.',
+    },
+    {
+      key: EventPermissionKey.ViewRoles,
+      category: 'roles',
+      label: 'View roles',
+      description: 'View event roles and permissions.',
+    },
+    {
+      key: EventPermissionKey.ManageRoles,
+      category: 'roles',
+      label: 'Manage roles',
+      description: 'Create roles, edit permissions, and assign users.',
+    },
+    {
+      key: EventPermissionKey.ViewStaff,
+      category: 'staff',
+      label: 'View staff',
+      description: 'View staff assignments.',
+    },
+    {
+      key: EventPermissionKey.ManageStaff,
+      category: 'staff',
+      label: 'Manage staff',
+      description: 'Manage staff assignments.',
+    },
+    {
+      key: EventPermissionKey.ViewMedia,
+      category: 'media',
+      label: 'View media',
+      description: 'View event media.',
+    },
+    {
+      key: EventPermissionKey.ManageMedia,
+      category: 'media',
+      label: 'Manage media',
+      description: 'Upload, update, and delete event media.',
+    },
+    {
+      key: EventPermissionKey.ExportData,
+      category: 'data',
+      label: 'Export data',
+      description: 'Export event data.',
+      premiumFeatureKey: 'event.data_export',
+    },
+    {
+      key: EventPermissionKey.ViewAuditLog,
+      category: 'audit',
+      label: 'View audit log',
+      description: 'View event audit history.',
+      premiumFeatureKey: 'event.audit_log',
+    },
+  ];

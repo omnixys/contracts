@@ -1,0 +1,74 @@
+/**
+ * @license GPL-3.0-or-later
+ * Copyright (C) 2025 Caleb Gyamfi - Omnixys Technologies
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * For more information, visit <https://www.gnu.org/licenses/>.
+ */
+export interface JwtPayloadClaims {
+    [claim: string]: unknown;
+    iss?: string;
+    sub?: string;
+    aud?: string | string[];
+    exp?: number;
+    nbf?: number;
+    iat?: number;
+    jti?: string;
+}
+export type KeycloakTokenPayload = JwtPayloadClaims & {
+    sub?: string;
+    username: string;
+    first_name?: string;
+    last_name?: string;
+    email: string;
+    email_verified?: boolean;
+    realm_access?: {
+        roles?: string[];
+    };
+    iss?: string;
+    azp?: string;
+};
+export interface KeycloakToken {
+    access_token: string;
+    expires_in: number;
+    refresh_token: string;
+    refresh_expires_in: number;
+    id_token: string;
+    scope: string;
+}
+export interface KeycloakRawOutput {
+    exp: number;
+    iat: number;
+    jti: string;
+    iss: string;
+    aud: string[];
+    sub: string;
+    typ: "Bearer";
+    azp: string;
+    sid: string;
+    acr: string;
+    "allowed-origins": string[];
+    realm_access: {
+        roles: string[];
+    };
+    resource_access: Record<string, {
+        roles: string[];
+    }>;
+    scope: string;
+    email_verified: boolean;
+    name: string;
+    preferred_username: string;
+    given_name: string;
+    family_name: string;
+    email: string;
+}
+//# sourceMappingURL=kc.dto.d.ts.map

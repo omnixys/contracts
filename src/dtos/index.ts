@@ -11,4 +11,5 @@ export * from "./ticket.dto.js";
 export * from "./token.dto.js";
 export * from "./trace.dto.js";
 export * from "./user.dto.js";
+export * from "./conversation.dto.js";
 export * from './context.js';
