@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.0.0](https://github.com/omnixys/contracts/compare/v2.1.3...v3.0.0) (2026-07-15)
+
+### Update
+
+* **Update:** update ([](https://github.com/omnixys/contracts/commit/5afa3f7bb22b3b9b45cc38d8ae8ce03b14385fb0))
+
 ## [2.1.3](https://github.com/omnixys/contracts/compare/v2.1.2...v2.1.3) (2026-07-03)
 
 ### Deps
