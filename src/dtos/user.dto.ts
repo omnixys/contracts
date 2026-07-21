@@ -101,3 +101,15 @@ export interface CreatePlusOneAccountDTO {
   phoneNumbers?: PhoneNumberDTO[];
   plusOneAgeCategory?: PlusOneAgeCategoryDTO;
 }
+
+export interface UserProjectionChangedDTO {
+  id: string;
+  username: string;
+  displayName?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  primaryPhone?: string | null;
+  avatarUrl?: string | null;
+  locale?: string | null;
+}
