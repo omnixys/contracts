@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.1.0](https://github.com/omnixys/contracts/compare/v3.0.0...v3.1.0) (2026-07-21)
+
+### Interface
+
+* **Interface:** add UserProjectionChangedDTO interface ([](https://github.com/omnixys/contracts/commit/88c115276ff4123392c5bb55eaa07f9ab523660b))
+
 ## [3.0.0](https://github.com/omnixys/contracts/compare/v2.1.3...v3.0.0) (2026-07-15)
 
 ### Update
