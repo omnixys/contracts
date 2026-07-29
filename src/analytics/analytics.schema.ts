@@ -148,6 +148,37 @@ export const AnalyticsDataQualityIssueSchema = z
   })
   .strict();
 
+export const AnalyticsResourceEventSchema = z
+  .object({
+    organizationId: z.string().uuid(),
+    workspaceId: z.string().uuid(),
+    resourceType: z.string().min(1).max(100),
+    resourceId: z.string().min(1).max(256),
+    action: z.string().min(1).max(100),
+    occurredAt: z.string().datetime({ offset: true }),
+    data: z.record(z.string(), z.unknown()).default({}),
+  })
+  .strict();
+
+export const AnalyticsJobEventSchema = z
+  .object({
+    organizationId: z.string().uuid(),
+    workspaceId: z.string().uuid(),
+    jobType: z.string().min(1).max(100),
+    jobId: z.string().uuid(),
+    status: z.enum([
+      "requested",
+      "running",
+      "completed",
+      "failed",
+      "canceled",
+    ]),
+    occurredAt: z.string().datetime({ offset: true }),
+    error: z.string().max(2048).optional(),
+    data: z.record(z.string(), z.unknown()).default({}),
+  })
+  .strict();
+
 export const EventPropertyDefinitionSchema = z
   .object({
     name: z.string().min(1).max(200),
@@ -210,6 +241,10 @@ export type AnalyticsProcessingEvent = z.infer<
 export type AnalyticsDataQualityIssue = z.infer<
   typeof AnalyticsDataQualityIssueSchema
 >;
+export type AnalyticsResourceEvent = z.infer<
+  typeof AnalyticsResourceEventSchema
+>;
+export type AnalyticsJobEvent = z.infer<typeof AnalyticsJobEventSchema>;
 export type AnalyticsEventDefinition = z.infer<
   typeof AnalyticsEventDefinitionSchema
 >;
