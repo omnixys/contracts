@@ -3,6 +3,43 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.2.0](https://github.com/omnixys/contracts/compare/v3.1.0...v3.2.0) (2026-07-29)
+
+### ⚠ BREAKING CHANGE
+
+* **Errors:** actor and tenant identifiers and unallowlisted metadata are no longer transport-visible.
+
+### Analytics
+
+* **Analytics:** add domain fact contracts ([](https://github.com/omnixys/contracts/commit/6497de5838566b5db95b40031898a71787582fa9))
+* **Analytics:** add platform event contracts ([](https://github.com/omnixys/contracts/commit/c3609ff22b091ca03290fbe67c33d6fb5f297538))
+* **Analytics:** add processing event contracts ([](https://github.com/omnixys/contracts/commit/718f28b3ba13e70f8cf8c265cb9606c22a74c4aa))
+* **Analytics:** add replay processing metadata ([](https://github.com/omnixys/contracts/commit/090f045b4704405e59f8c8b9bb295e819ee5ecb4))
+* **Analytics:** add resource event contracts ([](https://github.com/omnixys/contracts/commit/9aa5b1cab6372b2826364d7d25b163c379ca6bc0))
+
+### Contracts
+
+* **Contracts:** avoid duplicate exception exports ([](https://github.com/omnixys/contracts/commit/a5f8d1c1033b067aced5e7cb5553c68624af0a0c))
+
+### Errors
+
+* **Errors:** add secure versioned error catalog ([](https://github.com/omnixys/contracts/commit/a6a7f9fbae51b865688a46d1869a92955839cd3f))
+
+### Feature-flags
+
+* **Feature-flags:** add evaluation contracts ([](https://github.com/omnixys/contracts/commit/a6c3bcdac8ac92dfd6459d9bb684499220b9f658))
+* **Feature-flags:** accept idempotent evaluation ids ([](https://github.com/omnixys/contracts/commit/eaf9941e6168f1fe504ac8f387467d1c22153cd5))
+
+### Metrics
+
+* **Metrics:** add semantic definition contracts ([](https://github.com/omnixys/contracts/commit/d803d97e3b5fdd5e8eb46b53de6b75410a0306fc))
+
+### Rules
+
+* **Rules:** add audience membership actions ([](https://github.com/omnixys/contracts/commit/3a1ceab2ec667a71e2426ee67f118b589b01f2d4))
+* **Rules:** add declarative action contracts ([](https://github.com/omnixys/contracts/commit/f366e4a1d5cbf2bddb6032c2117b34802f81c496))
+* **Rules:** propagate processing causation ([](https://github.com/omnixys/contracts/commit/2601e5dbd734a04aa4735a76a013f8602c73588e))
+
 ## [3.1.0](https://github.com/omnixys/contracts/compare/v3.0.0...v3.1.0) (2026-07-21)
 
 ### Interface
