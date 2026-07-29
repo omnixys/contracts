@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { randomUUID } from "node:crypto";
 import {
   AnalyticsBatchRequestSchema,
+  AnalyticsProcessingEventSchema,
   AnalyticsRuleSetSchema,
 } from "../dist/analytics/index.js";
 
@@ -50,3 +52,38 @@ test("parses a nested rule AST", () => {
   });
   assert.equal(rule.version, 1);
 });
+
+test("parses replay metadata without changing the canonical event identity", () => {
+  const eventId = randomUUID();
+  const result = AnalyticsProcessingEventSchema.parse({
+    organizationId: randomUUID(),
+    workspaceId: randomUUID(),
+    sourceId: randomUUID(),
+    environment: "production",
+    receivedAt: new Date().toISOString(),
+    processingVersion: "analytics-service@1.0.0",
+    replay: {
+      jobId: randomUUID(),
+      originalEventId: eventId,
+      suppressSideEffects: true,
+    },
+    event: validEvent({ eventId }),
+  });
+
+  assert.equal(result.event.eventId, eventId);
+  assert.equal(result.replay?.originalEventId, eventId);
+});
+
+function validEvent(overrides = {}) {
+  return {
+    eventId: randomUUID(),
+    schemaVersion: "1.0",
+    type: "track",
+    name: "InvitationAccepted",
+    userId: "user-1",
+    occurredAt: new Date().toISOString(),
+    properties: {},
+    sdk: { name: "@omnixys/analytics-sdk", version: "1.0.0" },
+    ...overrides,
+  };
+}

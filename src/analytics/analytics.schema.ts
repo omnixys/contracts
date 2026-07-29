@@ -129,6 +129,14 @@ export const AnalyticsProcessingEventSchema = z
     environment: AnalyticsEnvironmentSchema,
     receivedAt: z.string().datetime({ offset: true }),
     processingVersion: z.string().min(1).max(100),
+    replay: z
+      .object({
+        jobId: z.string().uuid(),
+        originalEventId: z.string().uuid(),
+        suppressSideEffects: z.boolean().default(true),
+      })
+      .strict()
+      .optional(),
     event: AnalyticsEventSchema,
   })
   .strict();
