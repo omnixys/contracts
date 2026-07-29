@@ -121,6 +121,33 @@ export const AnalyticsBatchResponseSchema = z
   })
   .strict();
 
+export const AnalyticsProcessingEventSchema = z
+  .object({
+    organizationId: z.string().uuid(),
+    workspaceId: z.string().uuid(),
+    sourceId: z.string().uuid(),
+    environment: AnalyticsEnvironmentSchema,
+    receivedAt: z.string().datetime({ offset: true }),
+    processingVersion: z.string().min(1).max(100),
+    event: AnalyticsEventSchema,
+  })
+  .strict();
+
+export const AnalyticsDataQualityIssueSchema = z
+  .object({
+    organizationId: z.string().uuid(),
+    workspaceId: z.string().uuid(),
+    sourceId: z.string().uuid(),
+    environment: AnalyticsEnvironmentSchema,
+    eventId: z.string().uuid(),
+    mode: TrackingPlanModeSchema,
+    code: z.string().min(1).max(100),
+    message: z.string().min(1).max(1024),
+    path: z.array(z.union([z.string(), z.number()])).default([]),
+    occurredAt: z.string().datetime({ offset: true }),
+  })
+  .strict();
+
 export const EventPropertyDefinitionSchema = z
   .object({
     name: z.string().min(1).max(200),
@@ -177,6 +204,12 @@ export type AnalyticsEvent = z.infer<typeof AnalyticsEventSchema>;
 export type AnalyticsBatchRequest = z.infer<typeof AnalyticsBatchRequestSchema>;
 export type AnalyticsBatchIssue = z.infer<typeof AnalyticsBatchIssueSchema>;
 export type AnalyticsBatchResponse = z.infer<typeof AnalyticsBatchResponseSchema>;
+export type AnalyticsProcessingEvent = z.infer<
+  typeof AnalyticsProcessingEventSchema
+>;
+export type AnalyticsDataQualityIssue = z.infer<
+  typeof AnalyticsDataQualityIssueSchema
+>;
 export type AnalyticsEventDefinition = z.infer<
   typeof AnalyticsEventDefinitionSchema
 >;
