@@ -69,6 +69,11 @@ test("parses declarative rule runtime actions", () => {
     actions: [
       { type: "TAG_IDENTITY", tag: "accepted-invitation" },
       {
+        type: "UPDATE_AUDIENCE",
+        audienceId: randomUUID(),
+        operation: "ADD",
+      },
+      {
         type: "TRIGGER_NOTIFICATION",
         templateId: "invitation-accepted",
         channel: "IN_APP",
@@ -77,7 +82,7 @@ test("parses declarative rule runtime actions", () => {
     ],
   });
 
-  assert.equal(rule.actions.length, 2);
+  assert.equal(rule.actions.length, 3);
 });
 
 test("parses replay metadata without changing the canonical event identity", () => {

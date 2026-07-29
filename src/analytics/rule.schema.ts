@@ -64,6 +64,13 @@ export const AnalyticsRuleActionSchema = z.discriminatedUnion("type", [
     .strict(),
   z
     .object({
+      type: z.literal("UPDATE_AUDIENCE"),
+      audienceId: z.string().uuid(),
+      operation: z.enum(["ADD", "REMOVE"]),
+    })
+    .strict(),
+  z
+    .object({
       type: z.literal("TRIGGER_ALERT"),
       alertRuleId: z.string().uuid(),
       dimensions: z.record(z.string(), z.unknown()).default({}),
