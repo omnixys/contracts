@@ -5,6 +5,8 @@ import {
   AnalyticsBatchRequestSchema,
   AnalyticsProcessingEventSchema,
   AnalyticsRuleSetSchema,
+  KpiDefinitionSchema,
+  MetricQueryDefinitionSchema,
 } from "../dist/analytics/index.js";
 
 test("parses a valid analytics batch", () => {
@@ -72,6 +74,30 @@ test("parses replay metadata without changing the canonical event identity", () 
 
   assert.equal(result.event.eventId, eventId);
   assert.equal(result.replay?.originalEventId, eventId);
+});
+
+test("parses semantic metric and KPI definitions", () => {
+  const metricId = randomUUID();
+  const metric = MetricQueryDefinitionSchema.parse({
+    definitionVersion: "1.0",
+    eventName: "OrderCompleted",
+    aggregation: { operation: "sum", property: "amount" },
+    dimensions: ["currency"],
+    bucketSize: "1h",
+  });
+  const kpi = KpiDefinitionSchema.parse({
+    definitionVersion: "1.0",
+    expression: {
+      operator: "multiply",
+      left: { metricId },
+      right: { constant: 100 },
+    },
+    format: "currency",
+    unit: "EUR",
+  });
+
+  assert.equal(metric.aggregation.operation, "sum");
+  assert.equal(kpi.expression.operator, "multiply");
 });
 
 function validEvent(overrides = {}) {
