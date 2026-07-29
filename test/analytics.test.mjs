@@ -55,6 +55,31 @@ test("parses a nested rule AST", () => {
   assert.equal(rule.version, 1);
 });
 
+test("parses declarative rule runtime actions", () => {
+  const rule = AnalyticsRuleSetSchema.parse({
+    id: randomUUID(),
+    version: 1,
+    definitionVersion: "1.0",
+    condition: {
+      operator: "eq",
+      left: { fact: "event.name" },
+      right: "InvitationAccepted",
+    },
+    triggerEventNames: ["InvitationAccepted"],
+    actions: [
+      { type: "TAG_IDENTITY", tag: "accepted-invitation" },
+      {
+        type: "TRIGGER_NOTIFICATION",
+        templateId: "invitation-accepted",
+        channel: "IN_APP",
+        recipientFact: "event.userId",
+      },
+    ],
+  });
+
+  assert.equal(rule.actions.length, 2);
+});
+
 test("parses replay metadata without changing the canonical event identity", () => {
   const eventId = randomUUID();
   const result = AnalyticsProcessingEventSchema.parse({
