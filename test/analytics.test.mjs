@@ -94,6 +94,7 @@ test("parses replay metadata without changing the canonical event identity", () 
     environment: "production",
     receivedAt: new Date().toISOString(),
     processingVersion: "analytics-service@1.0.0",
+    causation: { depth: 1, causationId: randomUUID() },
     replay: {
       jobId: randomUUID(),
       originalEventId: eventId,
@@ -103,6 +104,7 @@ test("parses replay metadata without changing the canonical event identity", () 
   });
 
   assert.equal(result.event.eventId, eventId);
+  assert.equal(result.causation?.depth, 1);
   assert.equal(result.replay?.originalEventId, eventId);
 });
 

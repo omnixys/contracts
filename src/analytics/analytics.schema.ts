@@ -129,6 +129,14 @@ export const AnalyticsProcessingEventSchema = z
     environment: AnalyticsEnvironmentSchema,
     receivedAt: z.string().datetime({ offset: true }),
     processingVersion: z.string().min(1).max(100),
+    causation: z
+      .object({
+        depth: z.number().int().min(0).max(100),
+        correlationId: z.string().min(1).max(256).optional(),
+        causationId: z.string().min(1).max(256).optional(),
+      })
+      .strict()
+      .optional(),
     replay: z
       .object({
         jobId: z.string().uuid(),
