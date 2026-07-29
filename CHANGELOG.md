@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.2.2](https://github.com/omnixys/contracts-ts/compare/v3.2.1...v3.2.2) (2026-07-29)
+
+### Rename
+
+* **Rename:** rename repo ([](https://github.com/omnixys/contracts-ts/commit/a1a079cb1a0b4d5aceb5b4155927c080346803fb))
+
 ## [3.2.1](https://github.com/omnixys/contracts-ts/compare/v3.2.0...v3.2.1) (2026-07-29)
 
 ### Rename
