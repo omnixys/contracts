@@ -37,6 +37,7 @@ test("rejects invalid weights and bounds evaluation batches", () => {
   );
   assert.equal(
     FeatureFlagEvaluationRequestSchema.safeParse({
+      evaluationId: "not-a-uuid",
       keys: [],
       subjectId: "user-1",
       facts: {},

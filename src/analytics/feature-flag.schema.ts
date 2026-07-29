@@ -58,6 +58,7 @@ export const FeatureFlagDefinitionSchema = z
 
 export const FeatureFlagEvaluationRequestSchema = z
   .object({
+    evaluationId: z.string().uuid().optional(),
     keys: z.array(z.string().min(1).max(200)).min(1).max(100),
     subjectId: z.string().min(1).max(256),
     anonymousId: z.string().min(1).max(256).optional(),
