@@ -1,4 +1,5 @@
 export * from "./error-code.enum.js";
+export * from "./error-definition.js";
 export * from "./framework.exception.js";
 export * from "./user.exception.js";
 export * from "./event.exception.js";

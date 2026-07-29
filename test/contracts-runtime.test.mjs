@@ -5,6 +5,8 @@ import {
   ErrorCode,
   EventClosedException,
   FrameworkException,
+  getErrorDefinition,
+  getPublicErrorMetadata,
   InvitationAlreadyApprovedException,
   NotificationChannelUnavailableException,
   SeatAlreadyReservedException,
@@ -128,4 +130,48 @@ test("framework exceptions are transport-neutral and diagnostically stable", () 
   assert.equal(contextual.requestId, "request-2");
   assert.equal(contextual.correlationId, "correlation-2");
   assert.equal(contextual.actorId, ids.actorId);
+  assert.equal(contextual.httpStatus, 404);
+  assert.equal(contextual.retryable, false);
+  assert.equal(contextual.summary, "User not found.");
+});
+
+test("framework diagnostics and causes remain server-only", () => {
+  const cause = new Error("database password leaked");
+  const error = new FrameworkException(
+    ErrorCode.IDENTITY_PROVIDER_CLIENT_CONFIGURATION_INVALID,
+    "Authentication is temporarily unavailable.",
+    {
+      cause,
+      metadata: { field: "client", password: "must-not-leak" },
+      diagnostics: { clientSecret: "must-not-leak", upstreamStatus: 401 },
+    },
+  );
+
+  assert.equal(error.httpStatus, 500);
+  assert.equal(error.retryable, false);
+  assert.equal(Object.prototype.propertyIsEnumerable.call(error, "diagnostics"), false);
+  assert.equal(JSON.stringify(error).includes("must-not-leak"), false);
+  assert.equal(JSON.stringify(error).includes("upstreamStatus"), false);
+  assert.equal(error.cause, cause);
+});
+
+test("public metadata is controlled by the error-code allowlist", () => {
+  assert.deepEqual(
+    getPublicErrorMetadata(ErrorCode.USER_NOT_FOUND, {
+      userId: ids.actorId,
+      sql: "select *",
+      password: "must-not-leak",
+    }),
+    { userId: ids.actorId },
+  );
+  assert.deepEqual(
+    getPublicErrorMetadata(ErrorCode.INVALID_CREDENTIALS, {
+      username: "user@example.com",
+    }),
+    {},
+  );
+  assert.equal(
+    getErrorDefinition(ErrorCode.IDENTITY_PROVIDER_UNAVAILABLE).retryable,
+    true,
+  );
 });
