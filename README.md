@@ -1,4 +1,4 @@
-# @omnixys/contracts
+# @omnixys/contracts-ts
 
 Canonical, transport-neutral contracts for Omnixys services.
 
@@ -12,7 +12,7 @@ import {
   ErrorCode,
   createPendingUserSchema,
   UserNotFoundException,
-} from "@omnixys/contracts";
+} from "@omnixys/contracts-ts";
 
 const pendingUser = createPendingUserSchema.parse(input);
 const registry = new ContractSchemaRegistry().register(

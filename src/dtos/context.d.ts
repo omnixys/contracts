@@ -2,7 +2,7 @@
  * Represents the standard GraphQL execution context used by resolvers.
  * Provides access to both the incoming HTTP request and outgoing response.
  */
-import type { KeycloakRawOutput, KeycloakTokenPayload, Locale, TraceContextDTO } from '@omnixys/contracts';
+import type { KeycloakRawOutput, KeycloakTokenPayload, Locale, TraceContextDTO } from '@omnixys/contracts-ts';
 /**
  * Express request type containing Keycloak cookies.
  */
@@ -18,7 +18,7 @@ export interface GqlCtx {
     };
     res: Response;
 }
-/** @deprecated Use ClientMetadata from `@omnixys/context`. */
+/** @deprecated Use ClientMetadata from `@omnixys/context-ts`. */
 export interface ClientContext {
     ip: string | undefined;
     userAgent: string | undefined;
@@ -28,16 +28,16 @@ export interface ClientContext {
     location: string;
     locale: Locale;
 }
-/** @deprecated Use PrincipalContext from `@omnixys/context`. */
+/** @deprecated Use PrincipalContext from `@omnixys/context-ts`. */
 export interface ActorContext {
     actorId?: string;
     roles?: string[];
 }
-/** @deprecated Use TenantContext from `@omnixys/context`. */
+/** @deprecated Use TenantContext from `@omnixys/context-ts`. */
 export interface TenantContext {
     tenantId?: string;
 }
-/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
+/** @deprecated Use ContextSnapshot from `@omnixys/context-ts`. */
 export interface RequestContext {
     requestId?: string;
     correlationId?: string;
@@ -50,7 +50,7 @@ export interface RuntimeContext {
     operation?: string;
     version?: string;
 }
-/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
+/** @deprecated Use ContextSnapshot from `@omnixys/context-ts`. */
 export interface UnifiedContext {
     trace?: TraceContextDTO;
     actor?: ActorContext;

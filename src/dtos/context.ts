@@ -27,7 +27,7 @@ export interface GqlCtx {
   res: Response;
 }
 
-/** @deprecated Use ClientMetadata from `@omnixys/context`. */
+/** @deprecated Use ClientMetadata from `@omnixys/context-ts`. */
 export interface ClientContext {
   ip: string | undefined;
   userAgent: string | undefined;
@@ -38,18 +38,18 @@ export interface ClientContext {
   locale: Locale;
 }
 
-/** @deprecated Use PrincipalContext from `@omnixys/context`. */
+/** @deprecated Use PrincipalContext from `@omnixys/context-ts`. */
 export interface ActorContext {
   actorId?: string;
   roles?: string[];
 }
 
-/** @deprecated Use TenantContext from `@omnixys/context`. */
+/** @deprecated Use TenantContext from `@omnixys/context-ts`. */
 export interface TenantContext {
   tenantId?: string;
 }
 
-/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
+/** @deprecated Use ContextSnapshot from `@omnixys/context-ts`. */
 export interface RequestContext {
   requestId?: string;
   correlationId?: string;
@@ -64,7 +64,7 @@ export interface RuntimeContext {
   version?: string;
 }
 
-/** @deprecated Use ContextSnapshot from `@omnixys/context`. */
+/** @deprecated Use ContextSnapshot from `@omnixys/context-ts`. */
 export interface UnifiedContext {
   trace?: TraceContextDTO;
   actor?: ActorContext;

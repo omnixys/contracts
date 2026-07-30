@@ -1,6 +1,6 @@
 # Public error contract v1
 
-The canonical machine-readable catalog is exported by `@omnixys/contracts` as
+The canonical machine-readable catalog is exported by `@omnixys/contracts-ts` as
 `ERROR_DEFINITIONS`; its version is `ERROR_CATALOG_VERSION` (`1.0.0`). Every
 entry contains `code`, `summary`, `defaultMessage`, `httpStatus`, `retryable`
 and `publicMetadataKeys`.
