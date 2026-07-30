@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.2.3](https://github.com/omnixys/contracts-ts/compare/v3.2.2...v3.2.3) (2026-07-30)
+
+### Deps
+
+* **Deps:** fix imports ([](https://github.com/omnixys/contracts-ts/commit/e295099d9f71c72cf792b1b4e7d273736673d341))
+
 ## [3.2.2](https://github.com/omnixys/contracts-ts/compare/v3.2.1...v3.2.2) (2026-07-29)
 
 ### Rename
