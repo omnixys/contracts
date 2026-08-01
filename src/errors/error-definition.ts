@@ -51,6 +51,15 @@ const publicMetadataKeys: Readonly<
   [ErrorCode.SHOPPING_CART_NOT_FOUND]: ["shoppingCartId"],
   [ErrorCode.SHOPPING_CART_ITEM_NOT_FOUND]: ["shoppingCartId", "inventoryId"],
   [ErrorCode.SHOPPING_CART_QUANTITY_INVALID]: ["field", "minimum"],
+  [ErrorCode.TENANT_HEADER_MISSING]: ["tenantId"],
+  [ErrorCode.TENANT_HEADER_INVALID]: ["tenantId"],
+  [ErrorCode.TENANT_NOT_FOUND]: ["tenantId"],
+  [ErrorCode.TENANT_DISABLED]: ["tenantId", "status"],
+  [ErrorCode.TENANT_MEMBERSHIP_NOT_FOUND]: ["tenantId", "userId"],
+  [ErrorCode.TENANT_MEMBERSHIP_DENIED]: ["tenantId", "userId", "reason"],
+  [ErrorCode.TENANT_MEMBERSHIP_INACTIVE]: ["tenantId", "userId", "status"],
+  [ErrorCode.TENANT_SERVICE_UNAVAILABLE]: ["tenantId", "userId", "reason"],
+  [ErrorCode.TENANT_CONTEXT_UNVERIFIED]: ["tenantId"],
 });
 
 const explicitDefinitions: Readonly<
@@ -229,6 +238,50 @@ const explicitDefinitions: Readonly<
     "Ticket service error.",
   ),
   [ErrorCode.USER_INTERNAL_ERROR]: internalDefinition("User service error."),
+  [ErrorCode.TENANT_HEADER_MISSING]: definition(
+    "Tenant header missing.",
+    "A tenant context is required for this operation.",
+    400,
+  ),
+  [ErrorCode.TENANT_HEADER_INVALID]: definition(
+    "Tenant header invalid.",
+    "The supplied tenant identifier is invalid.",
+    400,
+  ),
+  [ErrorCode.TENANT_NOT_FOUND]: definition(
+    "Tenant not found.",
+    "The requested tenant does not exist.",
+    404,
+  ),
+  [ErrorCode.TENANT_DISABLED]: definition(
+    "Tenant disabled.",
+    "The requested tenant is not active.",
+    403,
+  ),
+  [ErrorCode.TENANT_MEMBERSHIP_NOT_FOUND]: definition(
+    "Tenant membership not found.",
+    "No membership exists for this user in the tenant.",
+    403,
+  ),
+  [ErrorCode.TENANT_MEMBERSHIP_DENIED]: definition(
+    "Tenant membership denied.",
+    "The user has no active membership in the tenant.",
+    403,
+  ),
+  [ErrorCode.TENANT_MEMBERSHIP_INACTIVE]: definition(
+    "Tenant membership inactive.",
+    "The user's membership in the tenant is not active.",
+    403,
+  ),
+  [ErrorCode.TENANT_SERVICE_UNAVAILABLE]: definition(
+    "Tenant service unavailable.",
+    "The tenant service is temporarily unavailable.",
+    503,
+    true,
+  ),
+  [ErrorCode.TENANT_CONTEXT_UNVERIFIED]: internalDefinition(
+    "Tenant context unverified.",
+  ),
 });
 
 export const ERROR_DEFINITIONS: Readonly<Record<ErrorCode, ErrorDefinition>> =
