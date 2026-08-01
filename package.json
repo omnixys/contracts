@@ -1,6 +1,6 @@
 {
   "name": "@omnixys/contracts-ts",
-  "version": "3.2.3",
+  "version": "3.3.0",
   "description": "Transport-neutral DTOs, enums, schemas, and domain errors for Omnixys services.",
   "type": "module",
   "private": false,

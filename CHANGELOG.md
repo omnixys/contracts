@@ -3,6 +3,13 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.3.0](https://github.com/omnixys/contracts-ts/compare/v3.2.3...v3.3.0) (2026-08-01)
+
+### Tenant
+
+* **Tenant:** add OMNIXYS_TENANT_ID canonical UUID constant ([](https://github.com/omnixys/contracts-ts/commit/fb4b789fbcda9b7854f5e9e8fc346b5afe87cb14))
+* **Tenant:** add TENANT_* error codes and definitions ([](https://github.com/omnixys/contracts-ts/commit/241d24cf350ff7e79d9fa53ecf195a832b45b911))
+
 ## [3.2.3](https://github.com/omnixys/contracts-ts/compare/v3.2.2...v3.2.3) (2026-07-30)
 
 ### Deps
