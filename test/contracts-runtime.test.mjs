@@ -27,6 +27,7 @@ const ids = {
   actorId: "00000000-0000-4000-8000-000000000001",
   eventId: "00000000-0000-4000-8000-000000000002",
   invitationId: "00000000-0000-4000-8000-000000000003",
+  tenantId: "00000000-0000-4000-8000-000000000004",
 };
 
 test("canonical error codes are stable and discoverable", () => {
@@ -50,6 +51,7 @@ test("user schemas validate and normalize contract dates", () => {
 
   const auth = guestAuthKeySchema.parse({
     actorId: ids.actorId,
+    tenantId: ids.tenantId,
     invitees: [
       {
         invitationId: ids.invitationId,
@@ -173,5 +175,30 @@ test("public metadata is controlled by the error-code allowlist", () => {
   assert.equal(
     getErrorDefinition(ErrorCode.IDENTITY_PROVIDER_UNAVAILABLE).retryable,
     true,
+  );
+});
+
+test("invitation RSVP and seat errors expose safe client-visible status", () => {
+  assert.equal(getErrorDefinition(ErrorCode.RSVP_NOT_SUBMITTED).httpStatus, 422);
+  assert.equal(getErrorDefinition(ErrorCode.RSVP_NOT_ACCEPTED).httpStatus, 422);
+  assert.equal(
+    getErrorDefinition(ErrorCode.INVITATION_PREVIEW_FAILED).httpStatus,
+    422,
+  );
+  assert.equal(
+    getErrorDefinition(ErrorCode.SEAT_ALLOCATION_EXCEEDED).httpStatus,
+    400,
+  );
+  assert.equal(
+    getErrorDefinition(ErrorCode.RSVP_NOT_SUBMITTED).defaultMessage,
+    "Guest has not submitted an RSVP yet.",
+  );
+  assert.deepEqual(
+    getPublicErrorMetadata(ErrorCode.RSVP_NOT_SUBMITTED, {
+      invitationId: ids.invitationId,
+      secret: "must-not-leak",
+      causeDetail: "nope",
+    }),
+    { invitationId: ids.invitationId },
   );
 });

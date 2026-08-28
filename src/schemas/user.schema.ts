@@ -48,6 +48,7 @@ export const guestNotificationSchema = z.object({
 
 export const guestAuthKeySchema = z.object({
   actorId: actorIdSchema,
+  tenantId: z.string().uuid(),
   invitees: z.array(
     z.object({
       invitationId: z.string().uuid(),

@@ -23,6 +23,10 @@ type GuestAuthSchemaMatchesDto = AssertAssignable<
   GuestAuthKey,
   z.output<typeof guestAuthKeySchema>
 >;
+type GuestAuthDtoMatchesSchema = AssertAssignable<
+  z.output<typeof guestAuthKeySchema>,
+  GuestAuthKey
+>;
 type NotificationSchemaMatchesDto = AssertAssignable<
   GuestNotificationDTO,
   z.output<typeof guestNotificationSchema>
@@ -34,6 +38,7 @@ type TokenSchemaMatchesDto = AssertAssignable<
 
 void (0 as unknown as PendingSchemaMatchesDto);
 void (0 as unknown as GuestAuthSchemaMatchesDto);
+void (0 as unknown as GuestAuthDtoMatchesSchema);
 void (0 as unknown as NotificationSchemaMatchesDto);
 void (0 as unknown as TokenSchemaMatchesDto);
 

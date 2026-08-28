@@ -44,6 +44,7 @@ export interface GuestAuthKey extends ActorIdDTO {
   /**
    * Identity + minimal auth-relevant data
    */
+  tenantId: string;
   invitees: Array<{
     invitationId: string;
     email?: string;

@@ -51,6 +51,10 @@ const publicMetadataKeys: Readonly<
   [ErrorCode.SHOPPING_CART_NOT_FOUND]: ["shoppingCartId"],
   [ErrorCode.SHOPPING_CART_ITEM_NOT_FOUND]: ["shoppingCartId", "inventoryId"],
   [ErrorCode.SHOPPING_CART_QUANTITY_INVALID]: ["field", "minimum"],
+  [ErrorCode.RSVP_NOT_SUBMITTED]: ["invitationId"],
+  [ErrorCode.RSVP_NOT_ACCEPTED]: ["invitationId"],
+  [ErrorCode.INVITATION_PREVIEW_FAILED]: ["eventId"],
+  [ErrorCode.SEAT_ALLOCATION_EXCEEDED]: ["eventId", "sectionId", "capacity", "requested"],
   [ErrorCode.TENANT_HEADER_MISSING]: ["tenantId"],
   [ErrorCode.TENANT_HEADER_INVALID]: ["tenantId"],
   [ErrorCode.TENANT_NOT_FOUND]: ["tenantId"],
@@ -213,6 +217,26 @@ const explicitDefinitions: Readonly<
   [ErrorCode.SHOPPING_CART_QUANTITY_INVALID]: definition(
     "Shopping cart quantity invalid.",
     "The shopping cart quantity is invalid.",
+    400,
+  ),
+  [ErrorCode.RSVP_NOT_SUBMITTED]: definition(
+    "RSVP not submitted.",
+    "Guest has not submitted an RSVP yet.",
+    422,
+  ),
+  [ErrorCode.RSVP_NOT_ACCEPTED]: definition(
+    "RSVP not accepted.",
+    "Guest must accept the RSVP before this operation.",
+    422,
+  ),
+  [ErrorCode.INVITATION_PREVIEW_FAILED]: definition(
+    "Invitation preview failed.",
+    "The invitation preview could not be generated.",
+    422,
+  ),
+  [ErrorCode.SEAT_ALLOCATION_EXCEEDED]: definition(
+    "Seat allocation exceeded.",
+    "The seat allocation limit has been exceeded.",
     400,
   ),
   [ErrorCode.ANALYTICS_INTERNAL_ERROR]: internalDefinition(
