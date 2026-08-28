@@ -3,6 +3,20 @@
 All notable changes in this project will be documented in this file.
 
 
+## [3.4.0](https://github.com/omnixys/contracts-ts/compare/v3.3.0...v3.4.0) (2026-08-28)
+
+### ⚠ BREAKING CHANGE
+
+* **Contracts:** require tenant in guest auth payload
+
+### Agent
+
+* **Agent:** add repository development instructions ([](https://github.com/omnixys/contracts-ts/commit/b10cefa0fdc50db280d11182089b6156b4720805))
+
+### Contracts
+
+* **Contracts:** require tenant in guest auth payload ([](https://github.com/omnixys/contracts-ts/commit/a6d8264f74271ba5a20da3c27853f64e7e03781d))
+
 ## [3.3.0](https://github.com/omnixys/contracts-ts/compare/v3.2.3...v3.3.0) (2026-08-01)
 
 ### Tenant
