@@ -21,7 +21,20 @@ export interface CreateUserProviderDTO extends UserActionDTO {
   username?: string;
 }
 
-export interface UserTokenDTO extends UserIdDTO, TokenDTO {}
+/**
+ * Internal Authentication → User provisioning payload (KafkaTopics.user.createUser).
+ *
+ * - `userId` is the canonical internal Omnixys user id (UUID v7), generated once by the
+ *   Authentication/identity layer and propagated to downstream consumers.
+ * - `keycloakSub` is the external Keycloak subject (opaque string, not a UUID domain
+ *   value) for Keycloak-backed identities. It is distinct from `userId` (`U !== K`).
+ *
+ * `keycloakSub` is optional in the current additive contract step and becomes populated
+ * once the identity migration is complete.
+ */
+export interface UserTokenDTO extends UserIdDTO, TokenDTO {
+  keycloakSub?: string;
+}
 
 export interface CreateGuestDTO extends UserTokenDTO {
   username: string;
