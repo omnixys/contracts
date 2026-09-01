@@ -84,6 +84,11 @@ node --test test/*.test.mjs; type tests via tsc -p tsconfig.type-tests.json wher
 
 Most-consumed package. Zod schemas are public contracts; breaking changes require MAJOR.
 
+Identity semantics: `userId` is the canonical internal Omnixys user id (UUID v7). `keycloakSub`
+is the external Keycloak subject (opaque string, not a UUID domain value) and is distinct from
+`userId` (`U !== K`). `keycloakSub` belongs only in internal identity/provisioning contracts;
+do not propagate it to public, frontend, guest, analytics, or general domain payloads.
+
 ## Development Skill
 
 This repository ships `SKILL.md` — the development workflow skill. Read and follow it
