@@ -11,6 +11,7 @@ export * from "./relationship-type.enum.js";
 export * from "./role-type.enum.js";
 export * from "./status-type.enum.js";
 export * from "./user-type.enum.js";
+export * from "./principal-type.enum.js";
 export * from "./whatsapp-message-direction.enum.js";
 export * from "./event-role-type.enum.js";
 export * from "./event-permission-key.enum.js";
