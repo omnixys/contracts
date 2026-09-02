@@ -3,6 +3,39 @@
 All notable changes in this project will be documented in this file.
 
 
+## [4.0.0](https://github.com/omnixys/contracts-ts/compare/v3.4.0...v4.0.0) (2026-09-02)
+
+### Ci
+
+* **Ci:** add labeler ([](https://github.com/omnixys/contracts-ts/commit/744b70c1d2996cafa9a540b587b4fd8f4e1bb190))
+
+### Contracts
+
+* **Contracts:** document identity semantics convention ([](https://github.com/omnixys/contracts-ts/commit/2dbe02d82427bddae59ab1d49c99d1d4b5c18c5e))
+* **Contracts:** add keycloakSub to user provisioning contract ([](https://github.com/omnixys/contracts-ts/commit/b6d7ae89d85fa0aa61fea4720fe4c54cff509f23))
+
+### Identity
+
+* **Identity:** separate user id from keycloak subject ([](https://github.com/omnixys/contracts-ts/commit/c3f397d9c28000d837e1ee9bb512a4bdb08cb7f0))
+* **Identity:** add principal type and token identity claim constants ([](https://github.com/omnixys/contracts-ts/commit/f1c289c0acae69946ab7014f78c15a20c008288f))
+
+### Other
+
+* **Other:** update observed runtime tool versions ([](https://github.com/omnixys/contracts-ts/commit/0ad92ce8aa6641b006c42f4ad1cae26f123c1d1f))
+* **Other:** Merge pull request #1 from omnixys/migration/uuid-v7 ([](https://github.com/omnixys/contracts-ts/commit/42031833b36e747bc5052faf5657e563481ebb04)), closes [#1](https://github.com/omnixys/contracts-ts/issues/1)
+
+### Release
+
+* **Release:** align package release toolchain with node 26 and pnpm 11 ([](https://github.com/omnixys/contracts-ts/commit/53bcfdacfc138cbd6fd945e0c6adab6c7394d73c))
+
+### Runtime
+
+* **Runtime:** require node 26.8.1 ([](https://github.com/omnixys/contracts-ts/commit/64f57a3565a1ce1bfbf945b194e75c76b0a9b563))
+
+### Semver
+
+* **Semver:** align labels with release convention ([](https://github.com/omnixys/contracts-ts/commit/257f40631d6461ecf53ccf5582a39f81175705d3))
+
 ## [3.4.0](https://github.com/omnixys/contracts-ts/compare/v3.3.0...v3.4.0) (2026-08-28)
 
 ### ⚠ BREAKING CHANGE
