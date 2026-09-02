@@ -11,7 +11,7 @@ Omnixys transport-neutral DTOs, enums, schemas, and domain errors.
 
 - Repository path: `packages/ts/contracts` (relative to the Omnixys root)
 - Package: `@omnixys/contracts-ts` (version: 3.3.0)
-- Runtime: Node >=20 (pnpm >=10.33.0)
+- Runtime: Node >=26.8.1 (pnpm >=11.24.0)
 - Kind: Shared Package
 
 ## Architecture
@@ -32,7 +32,7 @@ published to GitHub Packages (@omnixys scope); consumed by omnixys services and 
 ## Commands
 
 Commands below are the authoritative validation commands for this repository. Run them
-with the appropriate tooling (observed versions: node 26.6.0, pnpm 11.20.0, uv 0.12.1, java 26.0.2).
+with the appropriate tooling (observed versions: node 26.8.1, pnpm 11.24.0, uv 0.12.8, java 26.0.2).
 
 ### Install
 
@@ -83,6 +83,11 @@ node --test test/*.test.mjs; type tests via tsc -p tsconfig.type-tests.json wher
 ## Repository-Specific Rules
 
 Most-consumed package. Zod schemas are public contracts; breaking changes require MAJOR.
+
+Identity semantics: `userId` is the canonical internal Omnixys user id (UUID v7). `keycloakSub`
+is the external Keycloak subject (opaque string, not a UUID domain value) and is distinct from
+`userId` (`U !== K`). `keycloakSub` belongs only in internal identity/provisioning contracts;
+do not propagate it to public, frontend, guest, analytics, or general domain payloads.
 
 ## Development Skill
 

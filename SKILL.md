@@ -9,7 +9,7 @@
 
 - Kind: Shared Package
 - Package: `@omnixys/contracts-ts` (version: 3.3.0)
-- Runtime: Node >=20 (pnpm >=10.33.0)
+- Runtime: Node >=26.8.1 (pnpm >=11.24.0)
 - Description: Omnixys transport-neutral DTOs, enums, schemas, and domain errors.
 - Architecture: src/{schemas, errors, dtos, enums, types, analytics}
 - Database: n/a; Migrations: n/a
