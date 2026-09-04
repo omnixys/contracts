@@ -8,6 +8,13 @@ export interface LogDTO {
   timestamp: string;
   metadata?: Record<string, any>;
 
+  /**
+   * Provenance of the log record: either a service name (`"service:authentication"`)
+   * or a shared package id (`"package:@omnixys/security-ts"`). Distinguishes logs
+   * emitted directly by a service from those emitted by a shared package it consumes.
+   */
+  source?: string;
+
   traceContext?: TraceContextDTO;
   operation?: string;
 }
