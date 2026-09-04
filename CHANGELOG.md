@@ -3,6 +3,17 @@
 All notable changes in this project will be documented in this file.
 
 
+## [4.1.0](https://github.com/omnixys/contracts-ts/compare/v4.0.0...v4.1.0) (2026-09-04)
+
+### Ci
+
+* **Ci:** add PR build check workflow for main ([](https://github.com/omnixys/contracts-ts/commit/1031918a7ef8010f1d934dc92ac85dbff877aeb1))
+* **Ci:** add npm registry auth before install in release workflow ([](https://github.com/omnixys/contracts-ts/commit/efc335922524629cf5a8f9258b9ff71c14eaebdd))
+
+### Other
+
+* **Other:** Update log.dto.ts ([](https://github.com/omnixys/contracts-ts/commit/5e5f2f222e60f7b513c9ead12544385b20f09be4))
+
 ## [4.0.0](https://github.com/omnixys/contracts-ts/compare/v3.4.0...v4.0.0) (2026-09-02)
 
 ### Ci
