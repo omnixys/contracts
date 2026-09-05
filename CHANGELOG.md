@@ -3,6 +3,12 @@
 All notable changes in this project will be documented in this file.
 
 
+## [4.2.0](https://github.com/omnixys/contracts-ts/compare/v4.1.0...v4.2.0) (2026-09-05)
+
+### Contracts
+
+* **Contracts:** add guest confirmation resent analytics event ([](https://github.com/omnixys/contracts-ts/commit/cc6e37456cc25f2a29abda0a5d9ca7336fc6f1de))
+
 ## [4.1.0](https://github.com/omnixys/contracts-ts/compare/v4.0.0...v4.1.0) (2026-09-04)
 
 ### Ci
