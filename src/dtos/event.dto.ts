@@ -155,6 +155,15 @@ export interface SeatColorGroupDTO {
   isOrphaned: boolean;
 }
 
+/** Milestone of the guest confirmation reminder schedule relative to the event start. */
+export const GUEST_REMINDER_PRESETS = [
+  'WEEK_BEFORE',
+  'THREE_DAYS_BEFORE',
+  'HOURS_24_BEFORE',
+] as const;
+
+export type GuestReminderPreset = (typeof GUEST_REMINDER_PRESETS)[number];
+
 /** Broadcast when an event is created — carries all settings downstream services need. */
 export interface EventCreatedDTO extends EventIdDTO {
   name: string;
@@ -167,6 +176,9 @@ export interface EventCreatedDTO extends EventIdDTO {
   allowPublicPlusOne: boolean;
   allowGuestSeatSelection: boolean;
   scheduleTicketRelease: boolean;
+  guestConfirmationReminderEnabled?: boolean;
+  guestConfirmationReminderPresets?: GuestReminderPreset[];
+  guestConfirmationMaxResends?: number;
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;
@@ -187,6 +199,9 @@ export interface EventUpdatedDTO extends EventIdDTO {
   allowPublicPlusOne?: boolean;
   allowGuestSeatSelection?: boolean;
   scheduleTicketRelease?: boolean;
+  guestConfirmationReminderEnabled?: boolean;
+  guestConfirmationReminderPresets?: GuestReminderPreset[];
+  guestConfirmationMaxResends?: number;
   ticketReleaseAt?: string;
   rsvpDeadline?: string;
   category?: string;

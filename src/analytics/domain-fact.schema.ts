@@ -50,6 +50,7 @@ export const AnalyticsDomainEventNameSchema = z.enum([
   "QrScanRejected",
   "GuestCheckedIn",
   "GuestCheckedOut",
+  "GuestConfirmationResent",
   "ProfileUpdated",
 ]);
 
